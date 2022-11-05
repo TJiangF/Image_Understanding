@@ -1,0 +1,13 @@
+name = ('bds');
+filenum = 6;
+path = strcat(name,num2str(filenum));
+path=strcat(path,'.jpg');
+imgorg=imread(path);
+img=rgb2gray(imgorg);
+THRESH=[0.3,0.5];
+sigma=sqrt(2);
+canny=edge(img,'canny',THRESH,sigma);
+imshow(canny);
+Cannyfile=strcat('Canny_Edge_bds',num2str(filenum),'thresh_');
+Cannyfile=strcat(Cannyfile,num2str(THRESH(1)),'_',num2str(THRESH(2)),'_sigma_',num2str(sigma),'.jpg');
+imwrite(canny,Cannyfile);
